@@ -1,6 +1,6 @@
 # Rere - Discord Reaction Retriever
 
-Rere is a Discord bot that retrieves information from Discord message reactions, including the full list of users that gave the reactions. It is intended to act as support for other tools that gather information from Discord chats, such as [DiscordChatExporter](https://github.com/Tyrrrz/DiscordChatExporter). It is written in JavaScript, and uses [Discord.js v13](https://discord.js.org/). It runs using [Node.js](https://nodejs.org/).
+Rere is a Discord bot that retrieves information from Discord message reactions, including the full list of users that gave the reactions. It is intended to act as support for other tools that gather information from Discord chats, such as [DiscordChatExporter](https://github.com/Tyrrrz/DiscordChatExporter). It is written in JavaScript, and uses [Discord.js v14](https://discord.js.org/). It runs using [Node.js](https://nodejs.org/).
 
 Rere is used as a Discord bot, meaning you interact with it inside a Discord server to make it gather and export the desired information. Thus, Rere needs to be inside any server you want to collect information from, and must have access to the desired channels.
 
