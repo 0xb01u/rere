@@ -1,4 +1,4 @@
-# Rere - Reaction Retriever
+# Rere - Discord Reaction Retriever
 
 Rere is a Discord bot that retrieves information from Discord message reactions, including the full list of users that gave the reactions. It is intended to act as support for other tools that gather information from Discord chats, such as [DiscordChatExporter](https://github.com/Tyrrrz/DiscordChatExporter). It is written in JavaScript, and uses [Discord.js v13](https://discord.js.org/). It runs using [Node.js](https://nodejs.org/).
 
@@ -18,7 +18,7 @@ Rere will collect all messages sent to the channel `#<some-channel>` and extract
 
 Rere might also be used via "old-school Discord bot commands", i.e., using a custom command character. The custom command character is governed by the environmental variable `PRE`. For example, with `PRE=!`, one can use:
 ```
-!pre #<some-channel>
+!rere #<some-channel>
 ```
 or just the channel name:
 ```
@@ -26,7 +26,7 @@ or just the channel name:
 ```
 This will trigger Rere as previously descibed.
 
-Bear in mind that the intended way of using the bot is with the slash (/) command. Additionally, Rere requires the Read Messages Intent (that is, extra permissions) to use the old-school bot commands.
+Bear in mind that the intended way of using the bot is with the slash (/) command.
 
 ## Setup
 
@@ -41,14 +41,14 @@ If you want to use Rere via slash (/) commands (you most likely want this), crea
 	"clientId": "<your bot's client ID>"
 }
 ```
-Then, execute the following on the root of the project:
+After creating the config.json file, execute the following on the root of the project:
 ```
 node deploy-commands.js
 ```
 
-Execute Rere in the background by running:
+**Execute Rere** in the background by running:
 ```
-DISCORD_TOKEN=<your bot's token> PRE=<custom command's character> nohup node . &
+DISCORD_TOKEN=<your bot's token> PRE=<custom command's character> nohup node . 2>&1 &
 ```
 If you do not intend to use Rere with old-school custom commands (only with slash commands), you may omit the `PRE` environmental variable.
 
