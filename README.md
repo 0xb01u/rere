@@ -4,9 +4,9 @@ Rere is a Discord bot that retrieves information from Discord message reactions,
 
 Rere is used as a Discord bot, meaning you interact with it inside a Discord server to make it gather and export the desired information. Thus, Rere needs to be inside any server you want to collect information from, and must have access to the desired channels.
 
-Rere works in a channel basis. It will search for reactions in all the messages in a given channel, and collect their information. **Please, consider that message and reaction fetching are actions that may be rate-limited by Discord**, so the process of collecting all the reactions-related information from a channel is somewhat slow. As a reference, in the scenarios tested, it took Rere ~8 seconds to fetch 1000 messages, and ~130 additional seconds to fetch all their reactions.
+Rere works over full channels. It will search for reactions in all the messages in a given channel, and collect their information. **Please, consider that message and reaction fetching are actions that may be rate-limited by Discord**, so the process of collecting all the reactions-related information from a channel is somewhat slow. As a reference, in the scenarios tested, it took Rere ~8 seconds to fetch 1000 messages, and ~130 additional seconds to fetch all their reactions.
 
-**This software comes without any warranty**, including anything related to Discord's Terms of Service (ToS). Use at your own risk.
+**This software comes without any warranty**, including that of compliance with Discord's Terms of Service (ToS). Use at your own risk.
 
 ## Usage
 
