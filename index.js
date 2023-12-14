@@ -93,6 +93,7 @@ bot.on("interactionCreate", async interaction => {
 	});
 });
 
+// Returns an array containing all the messages of a channel, provided its ID and its guild's ID:
 async function getChannelMessages(channelNameOrID, guildId) {
 	let channel;
 	if (channelNameOrID.startsWith("<#") || !isNaN(channelNameOrID)) {
@@ -119,7 +120,7 @@ async function getChannelMessages(channelNameOrID, guildId) {
 	}
 }
 
-// Fetch up to 1000 messages from the channel:
+// Fetches all messages from the provided channel, in batches of 100:
 async function bulkMessageFetcher(channel) {
 	const start = performance.now();
 	const allMessages = [];
@@ -146,6 +147,7 @@ async function bulkMessageFetcher(channel) {
 	return allMessages;
 }
 
+// Fetches, extracts, and returns basic Reaction information (including user list) from all the provided messages:
 async function extractReactions(messages) {
 	const start = performance.now();
 	const reactions = [];
@@ -176,7 +178,7 @@ async function extractReactions(messages) {
 				return { id: id, tag: usrNames[i] };
 			});
 
-			// Add the reaction to the array:
+			// Add the Reaction to the array:
 			reactions.push({ msgId, emoji, reactingUsers });
 		}
 	}
@@ -188,6 +190,7 @@ async function extractReactions(messages) {
 	return reactions;
 }
 
+// Builds and returns an HTML containing the provided Reaction data:
 function buildHTML(reactionData) {
 	html = ["<!DOCTYPE html>\n\n<body>\n"]
 	for (const rct of reactionData) {
@@ -202,6 +205,9 @@ function buildHTML(reactionData) {
 	return html.join("");
 }
 
+// Returns a readable name for the specified channel. The name is <server name>_<channel name>.
+// Used to choose the file name of the saved HTML.
+// guildId is undefined when using a slash command.
 function channelToString(channelNameOrID, guildId) {
 	if (channelNameOrID.startsWith("<#") || !isNaN(channelNameOrID)) {
 		// Find the channel by ID:
