@@ -37,9 +37,17 @@ bot.on("messageCreate", async (msg) => {
 	}
 
 	const extractedReactions = await extractReactions(messages);
+	const html = buildHTML(extractedReactions);
 
-	console.log(extractedReactions);
-	console.log(extractedReactions.length);
+	if (!fs.existsSync("./exported_data")) fs.mkdirSync("./exported_data");
+	const outputFileName = `./exported_data/${channelToString(channel, msg.guildId)}.html`;
+	fs.writeFileSync(outputFileName, html);
+
+	msg.reply({
+		content: "Done!",
+		ephemeral: false,
+		files: [outputFileName]
+	});
 });
 
 bot.on("interactionCreate", async interaction => {
@@ -72,13 +80,16 @@ bot.on("interactionCreate", async interaction => {
 	});
 
 	const extractedReactions = await extractReactions(messages);
+	const html = buildHTML(extractedReactions);
 
-	console.log(extractedReactions);
-	console.log(extractedReactions.length);
+	if (!fs.existsSync("./exported_data")) fs.mkdirSync("./exported_data");
+	const outputFileName = `./exported_data/${channelToString(channel)}.html`;
+	fs.writeFileSync(outputFileName, html);
 
 	interaction.followUp({
 		content: "Done!",
-		ephemeral: true
+		ephemeral: true,
+		files: [outputFileName]
 	});
 });
 
@@ -175,4 +186,34 @@ async function extractReactions(messages) {
 	);
 
 	return reactions;
+}
+
+function buildHTML(reactionData) {
+	html = ["<!DOCTYPE html>\n\n<body>\n"]
+	for (const rct of reactionData) {
+		html.push(`<div class="reaction" data-msgId="${rct.msgId}" data-emoji="${rct.emoji}">\n`);
+		for (const usr of rct.reactingUsers) {
+			html.push(`\t<div class="user" data-id="${usr.id}" data-tag="${usr.tag}"></div>\n`);
+		}
+		html.push("</div>\n");
+	}
+	html.push("</body>");
+
+	return html.join("");
+}
+
+function channelToString(channelNameOrID, guildId) {
+	if (channelNameOrID.startsWith("<#") || !isNaN(channelNameOrID)) {
+		// Find the channel by ID:
+		channel = bot.channels.cache.find(
+			(ch) => ch.id === (isNaN(channelNameOrID) ? channelNameOrID.slice(2, -1) : channelNameOrID)
+		);
+	} else {
+		// Find the channel by name:
+		channel = bot.channels.cache.find(
+			(ch) => ch.name === channelNameOrID && ch.guild.id === guildId
+		);
+	}
+
+	return `${channel.guild.name}_${channel.name}`;
 }

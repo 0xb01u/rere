@@ -1,16 +1,19 @@
 {
   "name": "rere",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Discord bot for retrieving information about reactions in all of a channel's messages.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/0xb01u/Rere.git"
+  },
   "keywords": [
     "discord",
     "bot",
-    "reactions",
-    "analytics"
+    "reactions"
   ],
   "author": "Bolu",
   "license": "GPL-3.0-or-later",

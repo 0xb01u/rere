@@ -3,3 +3,5 @@ config.json
 
 node_modules/
 
+# Exported reaction data (HTML files) from test usages:
+exported_data/
