@@ -60,5 +60,5 @@ For more information on deploying a bot with custom slash commands, see this Dis
 
 This bot requires reading and sending messages in the server to work properly. Thus, when adding it to your server, do not forget to give it all the proper permissions related to that functionality.
 
-**IMPORTANT**: As the bot requires reading messages to work, it is necessary to turn on the Message Content privileged intent inside the bot's page in the developer portal for it to work properly. See [this Discord.js page](https://discordjs.guide/popular-topics/intents.html#privileged-intents) for more informatio.
+**IMPORTANT**: As the bot requires reading messages to work, it is necessary to turn on the Message Content privileged intent inside the bot's page in the developer portal for it to work properly. See [this Discord.js page](https://discordjs.guide/popular-topics/intents.html#privileged-intents) for more information.
 
