@@ -221,5 +221,5 @@ function channelToString(channelNameOrID, guildId) {
 		);
 	}
 
-	return `${channel.guild.name}_${channel.name}`;
+	return `${channel.guild.name}.${channel.name}`.replace(/ /g, "_");
 }
