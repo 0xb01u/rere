@@ -205,7 +205,8 @@ function buildHTML(reactionData) {
 	return html.join("");
 }
 
-// Returns a readable name for the specified channel. The name is <server name>_<channel name>.
+// Returns a readable name for the specified channel. The name is <server name>.<channel name>,
+// replacing spaces with underscores, and slashes with hyphens.
 // Used to choose the file name of the saved HTML.
 // guildId is undefined when using a slash command.
 function channelToString(channelNameOrID, guildId) {
@@ -221,5 +222,5 @@ function channelToString(channelNameOrID, guildId) {
 		);
 	}
 
-	return `${channel.guild.name}.${channel.name}`.replace(/ /g, "_");
+	return `${channel.guild.name}.${channel.name}`.replace(/ /g, "_").replace(/\//g, "-");
 }

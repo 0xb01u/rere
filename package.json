@@ -1,6 +1,6 @@
 {
   "name": "rere",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Discord bot for retrieving information about reactions in all of a channel's messages.",
   "main": "index.js",
   "scripts": {
