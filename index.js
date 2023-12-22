@@ -135,9 +135,10 @@ async function bulkMessageFetcher(channel) {
 		console.log(
 			`Messages fetched from ${channel.guild.name}#${channel.name}: ${allMessages.length}`
 		);
+		if (messages.size != 100 || messages.last() === undefined) break;
+
 		last = messages.last().id;
 
-		if (messages.size != 100) break;
 	}
 	const end = performance.now();
 	console.log(
