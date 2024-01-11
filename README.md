@@ -8,7 +8,7 @@ Rere works over full channels. It will search for reactions in all the messages 
 
 **This software comes without any warranty**, including that of compliance with Discord's Terms of Service (ToS). Use at your own risk.
 
-Rere is currently in beta. Right now, the extracted reaction data is converted into HTML and saved in `./exported_data/<server name>_<channel name>.html`, as well as sent as attachment in a reply to the triggering command.
+Rere is currently in beta. Right now, the extracted reaction data is converted into HTML and saved in `./exported_data/<server name>.<channel name>.html`, as well as sent as attachment in a reply to the triggering command.
 
 ## Usage
 
