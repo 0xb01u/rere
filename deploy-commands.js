@@ -2,6 +2,7 @@ const { SlashCommandBuilder } = require('@discordjs/builders');
 const { REST } = require('@discordjs/rest');
 const { Routes } = require('discord-api-types/v9');
 const { clientId } = require('./config.json');
+const { ChannelType } = require('discord.js');
 
 const commands = [
 	new SlashCommandBuilder()
@@ -10,7 +11,8 @@ const commands = [
 		.addChannelOption(option =>
 			option.setName('channel')
 			.setDescription('The channel to retrieve message reactions information from.')
-			.setRequired(true)),
+			.setRequired(true)
+			.addChannelTypes(ChannelType.GuildText)),
 ].map(command => command.toJSON());
 
 const rest = new REST({ version: '9' }).setToken(process.env.DISCORD_TOKEN);
