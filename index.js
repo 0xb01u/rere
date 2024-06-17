@@ -45,7 +45,7 @@ bot.on("messageCreate", async (msg) => {
 
 	const channel = args.shift();
 	const messages = await getChannelMessages(channel, msg.guildId);
-	// If an error ocurred, false was returned:
+	// If an error occurred, false was returned:
 	if (!messages) {
 		msg.reply(
 			`Channel ${channel} is not a valid text channel on this server, or I cannot access its messages for some reason.`
@@ -81,7 +81,7 @@ bot.on("interactionCreate", async interaction => {
 	const channel = interaction.options.get("channel").value;
 
 	const messages = await getChannelMessages(channel, interaction.guildId);
-	// If an error ocurred, false was returned:
+	// If an error occurred, false was returned:
 	if (!messages) {
 		interaction.followUp({
 			content: `Channel <#${channel}> is not a valid text channel on this server, or I cannot access its messages for some reason.`,
